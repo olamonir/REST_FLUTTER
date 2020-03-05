@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rest_app/lang/Translations.dart';
+import 'package:rest_app/lang/applic.dart';
 import 'package:rest_app/ui/screens/AboutUs.dart';
 import 'package:rest_app/ui/screens/ContactUs.dart';
 import 'package:rest_app/ui/screens/ExpansionList.dart';
@@ -41,15 +43,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
 
-      // ) ,
-      // Appbar
-      // appBar: AppBar(
-      //   // Title
-      //   // Set the background color of the App Bar
-      //   backgroundColor: Colors.blue,
-      // ),
+      appBar: AppBar(
+
+        backgroundColor: Color(0xFF1a8cb8),
+        title: Image.asset('lib/assets/images/logorestapp.png' , fit: BoxFit.contain,
+                  height: 30,),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(icon: Image.asset('lib/assets/images/change_lang.png' , height: 24 , width: 24,),  onPressed: () {
+            if(applic.currentLocale == 'en'){
+            applic.onLocaleChanged(new Locale('ar',''));
+            applic.currentLocale= 'ar';
+            }else if(applic.currentLocale == 'ar'){
+            applic.onLocaleChanged(new Locale('en',''));
+            applic.currentLocale= 'en';
+
+            }
+
+                // translationsBloc.setNewLanguage("fr");
+          },)
+        ],
+      ),
+
       // Set the TabBar view as the body of the Scaffold
       body: TabBarView(
         // Add tabs as widgets
@@ -72,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
             Tab(
               // set icon to the tab
               icon: Image.asset('lib/assets/images/homecolored.png' , height: 20 , width: 20),
-              child: Text('Home', style: TextStyle(
+              child: Text(Translations.of(context).text('home'), style: TextStyle(
                                                   color: Color(0xFF1a8cb8),
                                                   // fontWeight: FontWeight.w800,
                                                   fontFamily: 'Roboto',
@@ -82,7 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
             Tab(
               icon: Image.asset('lib/assets/images/aboutuscolored.png' ,  height: 20 , width: 20),
               // text:"About Us"
-              child: Text('About Us', style: TextStyle(
+              child: Text(Translations.of(context).text('about_us'), style: TextStyle(
                                                   color: Color(0xFF1a8cb8),
                                                   // fontWeight: FontWeight.w800,
                                                   fontFamily: 'Roboto',
@@ -91,7 +107,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
             ),
             Tab(
               icon: Image.asset('lib/assets/images/contactuscolored.png' ,  height: 20 , width: 20),
-              child: Text('Contact Us', style: TextStyle(
+              child: Text(Translations.of(context).text('contact_us'), style: TextStyle(
                                                   color: Color(0xFF1a8cb8),
                                                   // fontWeight: FontWeight.w800,
                                                   fontFamily: 'Roboto',
@@ -100,7 +116,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
             ),
             Tab(
               icon: Image.asset('lib/assets/images/shareappcolored.png' ,  height: 20 , width: 20),
-              child: Text('F.A.Q', style: TextStyle(
+              child: Text(Translations.of(context).text('share_app'), style: TextStyle(
                                                   color: Color(0xFF1a8cb8),
                                                   // fontWeight: FontWeight.w800,
                                                   fontFamily: 'Roboto',
@@ -119,6 +135,3 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomeP
   }
 
 }
-
-
-

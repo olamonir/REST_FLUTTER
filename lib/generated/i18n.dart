@@ -22,54 +22,26 @@ class S implements WidgetsLocalizations {
   TextDirection get textDirection => TextDirection.ltr;
 
   String get about_us => "About Us";
-  String get ac => "AC";
-  String get book_the_car => "Book the Car";
-  String get brand => "Brand";
-  String get car_detail_1 => "Rental counter in terminal";
-  String get car_detail_2 => "Helpful counter staff";
-  String get car_detail_3 => "Well-maintained cars";
-  String get car_detail_4 => "Most popular fuel policy";
-  String get car_detail_5 => "Short queues";
-  String get car_detail_6 => "Airport Charge";
-  String get car_details => "Car Details";
-  String get car_type => "Car Type";
-  String get cars => "Cars";
   String get contact_us => "Contact Us";
   String get email => "Email";
-  String get end_date_time => "Delivery date";
   String get error_try_again => "Error please try again";
   String get fill_field => "Please fill this field";
-  String get forget_password => "Forget your password?";
-  String get get_start => "Get Started";
   String get home => "Home";
-  String get login => "Login";
-  String get login_subtitle => "Car Hire – Search, Compare & Save";
-  String get logout => "Logout";
   String get message => "Message";
   String get message_send_content => "Your message send successfully.";
-  String get my_orders => "My Orders";
   String get name => "Name";
-  String get no_cars => "No cars found!";
-  String get no_orders => "No orders found!";
   String get ok => "OK";
-  String get order_done => "Order Done";
-  String get order_done_content => "Your order complete successfully. we will contact you soon.";
-  String get password => "Password";
-  String get per_day => "Per Day";
-  String get phone => "Phone";
-  String get please_select_date => "Please select from/to date";
-  String get register => "Register";
-  String get register_now => "Register Now";
-  String get rent_type => "Rent Type";
-  String get retry => "Retry";
-  String get search => "Search";
-  String get select_area => "Select Area";
   String get send => "Send";
-  String get sign_in => "Sign In";
-  String get sign_up => "Sign Up";
-  String get start_date_time => "Receive Date";
-  String get wrong_date => "Delivery date cannot be before Receive Date";
-  String price_kd(String price) => "$price KD";
+  String get share_app => "Share app";
+  String get developed_by => "Developed by";
+  String get facebook => "Facebook";
+  String get twitter => "Twitter";
+  String get whats_app => "Whats app";
+  String get about_us_content => "R.E.S.T is the acronym for Researcher Essential Statical Tool, which is afree application available to all researchers that leads you to the suggested statical test of your research data based on the purpose of the research, type of data, and its distribution.I put in your hands my simple knoledge and experience in the field of statical analysis, doing mistakes can happened for sure so, please don't hesitate to inform me if you found any mistake to correct it, because the goal of R.E.S.T. is serve the scientific research and researchers.";
+
+
+
+
 }
 
 class $ar extends S {
@@ -78,80 +50,23 @@ class $ar extends S {
   @override
   TextDirection get textDirection => TextDirection.rtl;
 
-  @override
-  String get register_now => "التسجيل الآن";
-  @override
-  String get please_select_date => "قم باختيار تاريخ البدء والانتهاء.";
-  @override
-  String get book_the_car => "حجز السياره";
-  @override
-  String get car_type => "نوع السياره";
-  @override
-  String get end_date_time => "تاريخ تسليم السياره";
-  @override
-  String get password => "كلمة السر";
-  @override
-  String get logout => "الخروج";
+
   @override
   String get about_us => "عن التطبيق";
   @override
-  String get no_cars => "لا يوجد سيارات!";
-  @override
-  String get brand => "ماركه";
-  @override
-  String get sign_in => "تسجيل الدخول";
-  @override
-  String get rent_type => "نوع الايجار";
-  @override
-  String get ac => "مكيف";
-  @override
-  String get sign_up => "الاشتراك";
-  @override
-  String get cars => "السيارات";
-  @override
-  String get phone => "الهاتف";
-  @override
-  String get order_done_content => "تم حجز السياره بنجاح ، سوف نتواصل معك قريبا.";
-  @override
-  String get my_orders => "طلباتي";
-  @override
   String get name => "الأسم";
   @override
-  String get send => "أرسال";
-  @override
-  String get select_area => "أختر المنطقه";
+  String get send => "إرسال";
   @override
   String get message_send_content => "تم أرسال رسالتك بنجاح.";
   @override
   String get contact_us => "تواصل معنا";
   @override
-  String get login => "دخول";
-  @override
-  String get search => "بحث";
-  @override
-  String get wrong_date => "يجب ان يكون تاريخ التسليم بعد تاريخ الاستلام";
-  @override
   String get ok => "موافق";
-  @override
-  String get order_done => "تم الحجز";
-  @override
-  String get retry => "إعاده";
   @override
   String get email => "البريد";
   @override
-  String get get_start => "البدء";
-  @override
   String get fill_field => "قم بملئ هذه الخانه";
-  @override
-  String get login_subtitle => "تأجير سيارات - بحث ومقارنة وحفظ";
-  @override
-  String get car_detail_4 => "سياسة الوقود الأكثر شعبية";
-  @override
-  String get car_detail_3 => "صيانه جيده للسيارات";
-  @override
-  String get car_detail_6 => "رسوم المطار";
-  @override
-  String get car_detail_5 => "طوابير قصيرة";
   @override
   String get message => "الرساله";
   @override
@@ -159,23 +74,18 @@ class $ar extends S {
   @override
   String get error_try_again => "خطأ اعد المحاوله";
   @override
-  String get car_details => "معلومات السياره";
+  String get share_app => "مشاركة التطبيق";
   @override
-  String get forget_password => "نسيت كلمة السر؟";
+  String get developed_by => "برمجة وتصميم";
   @override
-  String get car_detail_2 => "طاقم عمل لمساعدتك";
+  String get facebook => "فيس بوك";
   @override
-  String get car_detail_1 => "تأجير عداد في المحطة";
+  String get twitter => "تويتر";
   @override
-  String get no_orders => "لا يوجد طلبات!";
+  String get whats_app => "واتس آب";
   @override
-  String get start_date_time => "تاريخ أستلام السياره";
-  @override
-  String get per_day => "في اليوم";
-  @override
-  String get register => "التسجيل";
-  @override
-  String price_kd(String price) => "$price دينار";
+  String get about_us_content => "Developed by";
+
 }
 
 class $en extends S {

@@ -1,11 +1,20 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
+import 'package:flutter_mailer/flutter_mailer.dart';
+import 'package:rest_app/generated/i18n.dart';
+import 'package:rest_app/lang/Translations.dart';
+import 'package:rest_app/lang/applic.dart';
 
 
-class ContactUs extends StatelessWidget {
+class ContactUs extends StatefulWidget{
+
+  @override
+  ContactUsState createState() => ContactUsState();
+}
+
+class ContactUsState extends State<ContactUs> {
   GlobalKey<InnerDrawerState> innerDrawerKey;
   // ContactUs(this.innerDrawerKey);
   var nameController = TextEditingController();
@@ -19,12 +28,6 @@ class ContactUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1a8cb8),
-        title: Image.asset('lib/assets/images/logorestapp.png' , fit: BoxFit.contain,
-                  height: 30,),
-        centerTitle: true,
-      ),
 
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -32,9 +35,17 @@ class ContactUs extends StatelessWidget {
           TextFormField(
               controller: nameController,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    // border: InputBorder.none,
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(80)),
-                  hintText: 'Name',
+                    borderSide:const  BorderSide(color: Colors.white, width: 0.0),
+                      borderRadius: BorderRadius.circular(5)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color:Color(0xFF1a8cb8)),
+                      ),
+                  hintText: Translations.of(context).text('name'),
                   fillColor: Colors.white,
                   filled: true,
                   errorText: nameError,
@@ -47,9 +58,15 @@ class ContactUs extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(80)),
-                  hintText: 'Email',
+                      borderRadius: BorderRadius.circular(5)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color:Color(0xFF1a8cb8)),
+                      ),
+                  hintText: Translations.of(context).text('email'),
                   fillColor: Colors.white,
                   filled: true,
                   errorText: emailError,
@@ -63,9 +80,15 @@ class ContactUs extends StatelessWidget {
               minLines: 7,
               maxLines: 10,
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
                 border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-                hintText: 'Message',
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color:Color(0xFF1a8cb8)),
+                      ),
+                hintText: Translations.of(context).text('message'),
                 fillColor: Colors.white,
                 filled: true,
                 errorText: messageError,
@@ -74,68 +97,44 @@ class ContactUs extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          // StreamBuilder<LoadingState>(
-              // stream: userBloc.loadingStream,
-              // builder: (context, snapshot) {
-              //   if (snapshot.data != null && snapshot.data.loading) {
-              //     return Center(child: CircularProgressIndicator());
-              //   } else {
                   RaisedButton(
                     color:Color(0xFF1a8cb8),
                     onPressed: () {
-                      _launchURL('ola.monir7@gmail.com', nameController.text, messageController.text);
-                    showSuccessDialog(context);
+                    if(nameController.text.isEmpty){
+                      setState(() {
+                        nameError = Translations.of(context).text('please_enter_name');
+                          emailError = null;
+                          messageError = null;
+                      });
+                    }else if(emailController.text.isEmpty){
+                      setState(() {
+                        emailError = null ;
+                          emailError = Translations.of(context).text('please_enter_email');
+                          messageError = null;
+                      });
+                    }else if(messageController.text.isEmpty){
+                      setState(() {
+                        messageError = null ;
+                          messageError = null;
+                          messageError = Translations.of(context).text('please_enter_message');
+                      });
+                    }else{
+                      setState(() {
+                          nameError = null;
+                          emailError = null;
+                          messageError = null;
+                        });
+                          _launchURL("Al_shammeri2013@hotmail.com", messageController.text, messageController.text, nameController.text);
+                    }
 
-                      // if (nameController.text.isEmpty) {
-                      //   setState(() {
-                      //     nameError = S.of(context).fill_field;
-                      //     emailError = null;
-                      //     messageError = null;
-                      //   });
-                      // } else if (emailController.text.isEmpty) {
-                      //   setState(() {
-                      //     nameError = null;
-                      //     emailError = S.of(context).fill_field;
-                      //     messageError = null;
-                      //   });
-                      // } else if (messageController.text.isEmpty) {
-                      //   setState(() {
-                      //     nameError = null;
-                      //     emailError = null;
-                      //     messageError = S.of(context).fill_field;
-                      //   });
-                      // } else {
-                      //   setState(() {
-                      //     nameError = null;
-                      //     emailError = null;
-                      //     messageError = null;
-                      //   });
-                        // userBloc
-                        //     .contactUs(nameController.text,
-                        //         emailController.text, messageController.text)
-                        //     .then((success) {
-                        //   if (success) {
-                        //     _showSuccessDialog(context);
-                        //   } else {
-                        //     Scaffold.of(context).showSnackBar(SnackBar(
-                        //       content: Text('S.of(context).error_try_again'),
-                        //     ));
-                        //   }
-                        // }
-
-                        // );
-                      // }
 
                     },
-                    shape: StadiumBorder(),
                     padding: EdgeInsets.all(16),
-                    // color: Theme.of(context).accentColor,
-                    child: Text('S.of(context).send'),
+                    child: Text(Translations.of(context).text('send'), style: TextStyle(color: Colors.white)),
                   ),
-                // }
-              // })
         ],
       ),
+
     );
 
       }
@@ -154,9 +153,8 @@ class ContactUs extends StatelessWidget {
               FlatButton(
                   onPressed: () {
                     Navigator.of(context).pop();
-                    // baseBloc.pageSink.add(Page.HOME);
                   },
-                  child: Text("Ok")
+                  child:Text(Translations.of(context).text('ok')),
                   )
             ],
             content: Column(
@@ -171,11 +169,24 @@ class ContactUs extends StatelessWidget {
                 SizedBox(
                   height: 16,
                 ),
-                Text(
-                  "S.of(context).message_send_content",
-                  style: Theme.of(context).textTheme.subtitle,
+
+
+                applic.currentLocale == 'ar'?   Directionality( 
+                  textDirection: TextDirection.rtl,
+                  child: Text(
+                  "Send",                  
+                  style:TextStyle(color: Colors.white) ,
                   textAlign: TextAlign.center,
                 )
+                ): Directionality( 
+                  textDirection: TextDirection.ltr,
+                  child: Text(
+                  "Send",                  
+                  style:TextStyle(color: Colors.white) ,
+                  textAlign: TextAlign.center,
+                )
+                )
+                
               ],
             ),
           );
@@ -184,7 +195,7 @@ class ContactUs extends StatelessWidget {
 
 
 
-    _launchURL(String toMailId, String subject, String body) async {
+    _launchURL(String toMailId, String subject, String body, String name) async {
     // var url = 'mailto:$toMailId?subject=$subject&body=$body';
     // if (await canLaunch(url)) {
     //   await launch(url);
@@ -192,17 +203,31 @@ class ContactUs extends StatelessWidget {
     //   throw 'Could not launch $url';
     // }
 
-      final Email email = Email(
-      body: body,
-      subject: subject,
-      recipients: [toMailId],
+      // final Email email = Email(
+      // body: body,
+      // subject: subject,
+      // recipients: [toMailId],
       // cc: ['cc@example.com'],
       // bcc: ['bcc@example.com'],
       // attachmentPath: '/path/to/attachment.zip',
+      // isHTML: false,
+    // );
+
+      // await FlutterEmailSender.send(email);
+
+
+
+       final MailOptions mailOptions = MailOptions(
+      body: body ,
+      subject: "R.E.S.T. Contact Us",
+      recipients: [toMailId],
       isHTML: false,
+      // bccRecipients: ['other@example.com'],
+      // ccRecipients: ['third@example.com'],
+      // attachments: [ 'path/to/image.png', ],
     );
 
-      await FlutterEmailSender.send(email);
+    await FlutterMailer.send(mailOptions);
   }
 
 }

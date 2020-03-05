@@ -12,10 +12,7 @@ class ListPage extends StatelessWidget {
     const List<int> shades = <int>[50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("destination.title"),
-        // backgroundColor: destination.color,
-      ),
+
       // backgroundColor: destination.color[50],
       body: SizedBox.expand(
         child: ListView.builder(

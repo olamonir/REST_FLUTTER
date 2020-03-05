@@ -1,8 +1,6 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rest_app/lang/Translations.dart';
 
 class AboutUs  extends StatelessWidget{
   @override
@@ -11,17 +9,17 @@ class AboutUs  extends StatelessWidget{
 
     return Scaffold(
     backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFF1a8cb8),
-        title: Image.asset('lib/assets/images/logorestapp.png' , fit: BoxFit.contain,
-                  height: 30,),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xFF1a8cb8),
+      //   title: Image.asset('lib/assets/images/logorestapp.png' , fit: BoxFit.contain,
+      //             height: 30,),
+      //   centerTitle: true,
+      // ),
 
       body: Center(
         child: Container(
           margin: EdgeInsets.only(right : 30 ,left: 30),
-          child: Text('poiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjkpoiuytrdfghjk',
+          child: Text(Translations.of(context).text('about_us_content')  ,
                       style: TextStyle(
                                                                   color: Colors.grey,
                                                                   // fontWeight: FontWeight.w800,
@@ -39,4 +37,3 @@ class AboutUs  extends StatelessWidget{
 
   }
 }
-
